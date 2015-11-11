@@ -1,14 +1,29 @@
-<h2>Sign up</h2>
+<div class="small-container well">
+  <h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+      <div class="field margin-top-20">
+      <%= f.label 'First name' %><br />
+      <%= f.text_field :firstName, autofocus: true, class: 'form-control' %>
+      </div>
 
-  <div class="field">
+      <div class="field margin-top-20">
+        <%= f.label 'Last name' %><br />
+        <%= f.text_field :lastName, class: 'form-control' %>
+      </div>
+
+      <div class="field margin-top-20">
+      <%= f.label :email %><br />
+      <%= f.email_field :email%>
+      </div>
+      <div class="field margin-top-20">
+        <%= f.label ' username' %><br />
+        <%= f.text_field :username, class:'form-control' %>
+      </div>
+
+  <div class="field margin-top-20">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -16,14 +31,25 @@
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
-  <div class="field">
+  <div class="field margin-top-20">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+      <div class="field margin-top-20">
+        <%= f.label 'About Me.' %><br />
+        <%= f.text_area :aboutMe, class: 'form-control' %>
+      </div>
+
+  <div class="actions margin-top-20">
+    <%= f.submit "Sign up", class:'btn btn-primary' %>
   </div>
+
+      <div class="margin-top-10">
+        <a href="<%= new_user_session_path %>">Already have an account? Log in</a>
+      </div>
+
 <% end %>
 
-<%= render "devise/shared/links" %>
+
+</div>
