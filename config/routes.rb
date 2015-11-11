@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
     root to: 'home#index'
     devise_for :users, :controllers => { registrations: "registrations" }
+
+    resources :home, as: :user do
+      resources :post do
+        member do
+          resources :comment
+        end
+      end
+    end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
