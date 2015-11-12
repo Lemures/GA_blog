@@ -2,10 +2,10 @@ Rails.application.routes.draw do
     root to: 'home#index'
     devise_for :users, :controllers => { registrations: "registrations" }
 
-    resources :home, as: :user do
-      resources :post do
+    resources :home, as: :users do
+      resources :posts do
         member do
-          resources :comment
+          :commonts
         end
       end
     end
@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   #   resources :products do
   #     member do
   #       get 'short'
-  #       post 'toggle'
+  #       posts 'toggle'
   #     end
   #
   #     collection do
@@ -52,7 +52,7 @@ Rails.application.routes.draw do
 
   # Example resource route with concerns:
   #   concern :toggleable do
-  #     post 'toggle'
+  #     posts 'toggle'
   #   end
   #   resources :posts, concerns: :toggleable
   #   resources :photos, concerns: :toggleable

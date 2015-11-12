@@ -39,22 +39,23 @@
         <div class="row">
 
             <!-- Blog Post Content Column -->
+          <%= form_for [@user,@post] do |p| %>
             <div class="col-lg-8">
 
                 <!-- Blog Post -->
-
                 <!-- Title -->
-                <h1>New Post</h1>
-
+                <!--<h1>New Post</h1>-->
+                <h1><%= p.text_field :post_title, placeholder:'New Post' %></h1>
                 <hr>
 
-                <textarea class="form-control" placeholder="Your post" rows="10"></textarea>
-
+                <!--<textarea class="form-control" placeholder="Your posts" rows="10"></textarea>-->
+                <%= p.text_area :post_text , class: 'form-control', size: '0x10' %>
                 <div class="margin-top-20">
                     <button type="submit" class="btn btn-primary">Submit Post</button>
                 </div>
-
             </div>
+              <%end %>
+
 
             <!-- Blog Sidebar Widgets Column -->
             <div class="col-md-4">

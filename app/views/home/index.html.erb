@@ -46,6 +46,7 @@
         <!-- /.row -->
 
         <!-- Post One -->
+      <% @posts.each do |post| %>
         <div class="row">
             <div class="col-md-7">
                 <a href="#">
@@ -53,14 +54,17 @@
                 </a>
             </div>
             <div class="col-md-5">
-                <h3>Post One</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
-                <a class="btn btn-primary" href="#">View Post <span class="glyphicon glyphicon-chevron-right"></span></a>
+                <h3><%= post.post_title %></h3>
+                <p><%= post.post_text %></p>
+                <a class="btn btn-primary" href="<%= user_post_path(@user.id, post.id) %>">View Post <span class="glyphicon glyphicon-chevron-right"></span></a>
+
             </div>
         </div>
+
         <!-- /.row -->
 
         <hr>
+      <% end %>
 
         <!-- Post Two -->
         <div class="row">

@@ -1,4 +1,4 @@
-class Comment < ActiveRecord::Base
+class Comments < ActiveRecord::Base
   belongs_to :post
 
   belongs_to :user
