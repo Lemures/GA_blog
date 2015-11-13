@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :home, as: :users do
       resources :posts do
         member do
-          :commonts
+          resources :comments
         end
       end
     end
@@ -38,13 +38,13 @@ Rails.application.routes.draw do
 
   # Example resource route with sub-resources:
   #   resources :products do
-  #     resources :comments, :sales
+  #     resources :Comments, :sales
   #     resource :seller
   #   end
 
   # Example resource route with more complex sub-resources:
   #   resources :products do
-  #     resources :comments
+  #     resources :Comments
   #     resources :sales do
   #       get 'recent', on: :collection
   #     end
