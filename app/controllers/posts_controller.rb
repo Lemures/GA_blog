@@ -1,19 +1,21 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
 
   def show
     @user = current_user
 
-    @post = User.find(@user.id).posts.find(params[:id])
+    @post = User.find(params[:user_id]).posts.find(params[:id])
 
     render 'posts/post'
 
   end
 
   def new
-   @user = User.find(params[:user_id])
+    #before_action :authenticate_user!
 
-   @post = Post.new
+    @user = User.find(params[:user_id])
+
+    @post = Post.new
   end
 
   def create
