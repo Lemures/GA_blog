@@ -7,6 +7,8 @@ class HomeController < ApplicationController
         @posts = User.find(@user.id).posts
 
         @userFullName = [@user.firstName, @user.lastName].join(' ')
+
+        redirect_to users_path
       else
 
        redirect_to new_user_session_path
