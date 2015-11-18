@@ -15,7 +15,7 @@ class PostsController < ApplicationController
 
   def new
     #before_action :authenticate_user!
-
+˚
     @user = User.find(params[:user_id])
 
     @post = Post.new
