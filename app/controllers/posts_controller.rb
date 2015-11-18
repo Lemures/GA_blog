@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
   def show
 
-    @user = User.find(params[:user_id])
+    @user = User.find(params[:id])
 
 
 
@@ -15,7 +15,7 @@ class PostsController < ApplicationController
 
   def new
     #before_action :authenticate_user!
-˚
+
     @user = User.find(params[:user_id])
 
     @post = Post.new
