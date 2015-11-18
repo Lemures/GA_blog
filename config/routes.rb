@@ -1,6 +1,23 @@
 Rails.application.routes.draw do
-    root "home#index"
-  devise_for :users
+    root to: 'home#index'
+
+    devise_for :users, :controllers => { registrations: "registrations" }
+
+    #get 'home/:username' => 'home#showUser'
+
+    #get '/:username' => redirect {|params| "home/#{params[:username]}"}
+
+    resources :home, as: :users do
+
+      resources :posts do
+        member do
+          resources :comments
+        end
+      end
+    end
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -20,7 +37,7 @@ Rails.application.routes.draw do
   #   resources :products do
   #     member do
   #       get 'short'
-  #       post 'toggle'
+  #       posts 'toggle'
   #     end
   #
   #     collection do
@@ -30,13 +47,13 @@ Rails.application.routes.draw do
 
   # Example resource route with sub-resources:
   #   resources :products do
-  #     resources :comments, :sales
+  #     resources :Comments, :sales
   #     resource :seller
   #   end
 
   # Example resource route with more complex sub-resources:
   #   resources :products do
-  #     resources :comments
+  #     resources :Comments
   #     resources :sales do
   #       get 'recent', on: :collection
   #     end
@@ -44,7 +61,7 @@ Rails.application.routes.draw do
 
   # Example resource route with concerns:
   #   concern :toggleable do
-  #     post 'toggle'
+  #     posts 'toggle'
   #   end
   #   resources :posts, concerns: :toggleable
   #   resources :photos, concerns: :toggleable
