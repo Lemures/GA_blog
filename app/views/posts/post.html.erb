@@ -74,12 +74,11 @@
                 <!-- Blog Comment -->
 
                 <!-- Comment Form -->
-              <%= form_for [@user, @post] do || %>
+              <%= form_for [@user,@post] do |comment| %>
                 <div class="well">
                     <h4>Leave a Comment:</h4>
                     <form role="form">
                         <div class="form-group">
-                          <%= form_for %>
                             <textarea class="form-control" rows="3"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit Comment</button>

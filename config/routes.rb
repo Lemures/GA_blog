@@ -3,13 +3,21 @@ Rails.application.routes.draw do
 
     devise_for :users, :controllers => { registrations: "registrations" }
 
+    #get 'home/:username' => 'home#showUser'
+
+    #get '/:username' => redirect {|params| "home/#{params[:username]}"}
+
     resources :home, as: :users do
+
       resources :posts do
         member do
           resources :comments
         end
       end
     end
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
