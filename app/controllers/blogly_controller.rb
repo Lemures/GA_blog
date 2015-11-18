@@ -1,4 +1,4 @@
-class HomeController < ApplicationController
+class BloglyController < ApplicationController
   #before_action :authenticate_user!
     def index
       if user_signed_in?
@@ -27,16 +27,15 @@ class HomeController < ApplicationController
     end
 
   def show
-      #@user = User.find(params[:id])
 
-      @user = User.find(params[:id])
-      #@user = User.find_by_username(params[:username])
+      #@user = User.find(params[:id])
+      @user = User.friendly.find(params[:id])
 
       @posts = @user.posts
 
       @userFullName = [@user.firstName, @user.lastName].join(' ')
 
-    #render 'home/test_show'
+    #render 'blogly/test_show'
 
 
     #@posts = User.find(@user.id).posts
@@ -47,26 +46,6 @@ class HomeController < ApplicationController
 
   end
 
-    def showUser
-      #@user = User.find(params[:id])
-
-      #@user = User.find(params[:id])
-      @user = User.find_by_username(params[:username])
-
-      @posts = @user.posts
-
-      @userFullName = [@user.firstName, @user.lastName].join(' ')
-
-
-
-      #@posts = User.find(@user.id).posts
-
-
-      #@userFullName = [@user.firstName, @user.lastName].join(' ')
-
-
-
-    end
 
 
 end

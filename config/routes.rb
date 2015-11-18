@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
-    root to: 'home#index'
+    root to: 'blogly#index'
 
     devise_for :users, :controllers => { registrations: "registrations" }
 
-    #get 'home/:username' => 'home#showUser'
+    #get 'blogly/:username' => 'blogly#showUser'
 
-    #get '/:username' => redirect {|params| "home/#{params[:username]}"}
+    get '/:username', to: redirect {|params| params[:username] == "blogly" ? '/users/sign_in' : "blogly/#{params[:username]}" }
 
-    resources :home, as: :users do
+    # get ':username', to: redirect {|params| "blogly/#{params[:username]}" }
+
+    resources :blogly, as: :users do
 
       resources :posts do
         member do

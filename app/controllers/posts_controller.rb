@@ -3,29 +3,28 @@ class PostsController < ApplicationController
 
   def show
 
-    @user = User.find(params[:id])
+    @user = User.friendly.find(params[:user_id])
 
 
 
-    @post = User.find(params[:user_id]).posts.find(params[:id])
+    @post = User.friendly.find(params[:user_id]).posts.find(params[:id])
 
-    render 'posts/post'
 
   end
 
   def new
     #before_action :authenticate_user!
 
-    @user = User.find(params[:user_id])
+    @user = User.friendly.find(params[:user_id])
 
     @post = Post.new
   end
 
   def create
 
-    User.find(params[:user_id]).posts.create(post_params)
+    User.friendly.find(params[:user_id]).posts.create(post_params)
 
-    redirect_to '/home'
+    redirect_to '/blogly'
   end
 
 private
