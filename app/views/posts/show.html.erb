@@ -52,13 +52,14 @@
                 <hr>
 
                 <!-- Date/Time -->
-                <p><span class="glyphicon glyphicon-time"></span><%= @post.created_at.ctime%></p>
+                <p><span class="glyphicon glyphicon-time"></span><%= @post.created_at.ctime %></p>
 
                 <hr>
 
                 <!-- Preview Image -->
-                <img class="img-responsive" src="http://placehold.it/900x300" alt="">
-
+              <a href="<%= @post.post_image.url %> ">
+                <%= @post.post_image.url( :medium ) , class:'img-responsive'%>
+              </a>
                 <hr>
 
                 <!-- Post Content -->
