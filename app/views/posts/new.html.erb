@@ -41,6 +41,12 @@
             <!-- Blog Post Content Column -->
           <%= form_for [@user,@post] do |p| %>
             <div class="col-lg-8">
+              <% if flash[:error] %>
+                <div class="alert alert-danger">
+                  <%= flash[:error] %>
+                </div>
+
+              <% end %>
 
                 <!-- Blog Post -->
                 <!-- Title -->
