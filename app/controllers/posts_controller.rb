@@ -6,7 +6,10 @@ class PostsController < ApplicationController
 
 
 
-    @post = User.friendly.find(params[:user_id]).posts.find(params[:id])
+    # @post = User.friendly.find(params[:user_id]).posts.find(params[:id])
+    @post = User.friendly.find(params[:user_id]).posts.friendly.find(params[:id])
+
+    #redirect_to user_post_path(@user,@post)
 
 
   end
@@ -21,7 +24,7 @@ class PostsController < ApplicationController
 
   def create
 
-    User.friendly.find(params[:user_id]).posts.create( post_params )
+    User.friendly.find(params[:user_id]).posts.create(post_params)
 
     redirect_to '/blogly'
 

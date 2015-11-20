@@ -9,7 +9,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Blog.Ly</a>
+                <a class="navbar-brand" href="<%= user_path(@user) %>">Blog.Ly</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -65,7 +65,7 @@
             <div class="col-md-5">
                 <h3><%= post.post_title %></h3>
                 <p><%= post.post_text %></p>
-                <a class="btn btn-primary" href="<%= user_post_path(@user.username, post.id) %>">View Post <span class="glyphicon glyphicon-chevron-right"></span></a>
+                <a class="btn btn-primary" href="<%= user_post_path(@user.slug, post.slug) %>">View Post <span class="glyphicon glyphicon-chevron-right"></span></a>
 
             </div>
         </div>

@@ -5,14 +5,13 @@ Rails.application.routes.draw do
 
     #get 'blogly/:username' => 'blogly#showUser'
 
-    get '/:username', to: redirect {|params| params[:username] == "blogly" ? '/users/sign_in' : "blogly/#{params[:username]}" }
+    #get '/:slug', to: redirect {|params| params[:slug] == "blogly" ? '/users/sign_in' : "blogly/#{params[:slug]}" }
 
     # get ':username', to: redirect {|params| "blogly/#{params[:username]}" }
 
     resources :blogly, as: :users do
-
       resources :posts do
-        member do
+        member do get :friendly_id
           resources :comments
         end
       end
