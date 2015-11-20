@@ -49,12 +49,9 @@
                 <hr>
 
                 <!--<textarea class="form-control" placeholder="Your posts" rows="10"></textarea>-->
-                <%= p.text_area :post_text , class: 'form-control', size: '0x10' %>
+                <%= p.text_area :post_text, class: 'form-control', size: '0x10' %>
                 <hr>
-                <%= p.file_field :post_image %>
-              <h2>or</h2>
-              <hr>
-              <%= p.text_area :post_image, placeholder: 'image url' %>
+                <%= p.file_field :post_img, as: :file %>
                 <div class="margin-top-20">
                     <button type="submit" class="btn btn-primary">Submit Post</button>
                 </div>

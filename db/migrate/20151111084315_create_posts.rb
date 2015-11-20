@@ -10,12 +10,4 @@ class CreatePosts < ActiveRecord::Migration
     end
   end
 
-  def up
-    add_attachment :post, :post_image
-  end
-
-  def down
-    remove_attachment :post, :post_image
-  end
-
 end

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="2990977432">
+  <component name="DataSourceManagerImpl" format="xml" hash="2313585922">
     <data-source source="LOCAL" name="Rails GA_blog: development" uuid="103ada10-2cc7-4020-8c8a-8ab5d943736c">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
@@ -38,17 +38,6 @@
           <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/sqlite-jdbc-3.8.9.jar</url>
         </library>
       </libraries>
-    </data-source>
-    <data-source source="LOCAL" name="Rails GA_blog: production" uuid="95cda585-1634-49d2-8241-d67f4173a90e">
-      <driver-ref>b318c50d-cdfe-4dd4-9c23-d897d8f13162</driver-ref>
-      <synchronize>true</synchronize>
-      <imported>true</imported>
-      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
-      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://gabloglydb.cdolhtm8ixld.us-west-1.rds.amazonaws.com/GA_blodly_db</jdbc-url>
-      <explain-plan-config>
-        <provider>com.intellij.database.plan.ExplainPlanProvider.NullExplainPlanProvider</provider>
-      </explain-plan-config>
     </data-source>
   </component>
 </project>

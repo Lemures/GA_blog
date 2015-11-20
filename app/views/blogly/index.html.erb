@@ -53,12 +53,14 @@
         <!-- /.row -->
 
         <!-- Post One -->
-      <% @posts.each do |post| %>
+      <% @posts.reverse_each do |post| %>
         <div class="row">
             <div class="col-md-7">
-                <a href="<%= post.post_image.url %> ">
-                  <%= post.image post.post_image.url(:medium), class: 'img-responsive' %>
+                <a>
+                  <%= link_to post.post_img.url, :target => '_blank' do %>
+                    <%= image_tag post.post_img.url(:medium), class: 'img-responsive' %>
                     <!--<img class="img-responsive" src="http://placehold.it/700x300" alt="">-->
+                  <% end %>
                 </a>
             </div>
             <div class="col-md-5">

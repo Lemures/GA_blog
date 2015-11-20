@@ -23,8 +23,8 @@ test:
 production:
   adapter: mysql2
   encoding: utf8
-  database: GA_blodly_db
-  username: Lemures
+  database: blogly_db
+  username: lemures
   password: wolfbite
-  host: gabloglydb.cdolhtm8ixld.us-west-1.rds.amazonaws.com
+  host: bloglydb.cdolhtm8ixld.us-west-1.rds.amazonaws.com
   post: 3306
