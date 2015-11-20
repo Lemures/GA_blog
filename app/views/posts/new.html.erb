@@ -41,12 +41,21 @@
             <!-- Blog Post Content Column -->
           <%= form_for [@user,@post] do |p| %>
             <div class="col-lg-8">
-              <% if flash[:error] %>
-                <div class="alert alert-danger">
-                  <%= flash[:error] %>
-                </div>
+              <% if @poster.errors.any? %>
+                  <div class="alert alert-danger">
+
+                   <h2> <%= pluralize(@poster.errors.count, 'errors') %>
+                    prohibited this Post from being saved:</h2>
+
+                    <ul>
+                      <% @poster.errors.full_message.each do |msg| %>
+                        <li><%= msg %></li>
+                      <% end %>
+                    </ul>
+                  </div>
 
               <% end %>
+
 
                 <!-- Blog Post -->
                 <!-- Title -->

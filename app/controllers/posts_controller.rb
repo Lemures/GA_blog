@@ -26,29 +26,26 @@ class PostsController < ApplicationController
 
     @post = User.friendly.find(params[:user_id]).posts.create(post_params)
 
-    if @post.post_title.valid?
+    @poster = Post.new
 
-      if  @post.post_text.valid?
+    if @poster.valid?
 
-        if  @post.post_img.valid?
-
-          redirect_to '/blogly'
-
-        else
-
-          flash[:error] = "image file isn't valid type"
-
-        end
-
-      else
-        flash[:error] = 'least on character is require in you body'
-      end
+      redirect_to '/blogly'
 
     else
-      flash[:error] = 'It is likely, that you already used this title before try add a slight variant'
+
+      @poster.errors.messages
+
     end
 
+
+    # if @post.valid?
+    #
     # redirect_to '/blogly'
+    # else
+    #   flash[:error] = 'oops, FIX IT'
+    # end
+
 
   end
 
