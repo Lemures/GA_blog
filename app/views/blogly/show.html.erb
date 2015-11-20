@@ -55,14 +55,15 @@
       <% @posts.each do |post| %>
         <div class="row">
             <div class="col-md-7">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+              <a href="<%= post.post_image.url %> ">
+                  <%= post.image post.post_image.url(:medium), class: 'img-responsive' %>
+                    <!--<img class="img-responsive" src="http://placehold.it/700x300" alt="">-->
                 </a>
             </div>
             <div class="col-md-5">
                 <h3><%= post.post_title %></h3>
                 <p><%= post.post_text %></p>
-                <a class="btn btn-primary" href="<%= user_post_path(@user.id, post.id) %>">View Post <span class="glyphicon glyphicon-chevron-right"></span></a>
+                <a class="btn btn-primary" href="<%= user_post_path(@user.username.lowercase, post.id) %>">View Post <span class="glyphicon glyphicon-chevron-right"></span></a>
 
             </div>
         </div>

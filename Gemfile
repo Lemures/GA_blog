@@ -2,8 +2,14 @@ source 'https://rubygems.org'
 
 gem 'devise'
 
-
 gem 'friendly_id'
+
+gem 'figaro'
+
+gem 'paperclip', '~> 4.3'
+
+gem 'aws-sdk', '~> 1'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
@@ -47,5 +53,9 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
+
+group :production do
+  gem 'mysql2', '~> 0.3.18'
 end
 

@@ -9,4 +9,13 @@ class CreatePosts < ActiveRecord::Migration
       t.timestamps null: false
     end
   end
+
+  def up
+    add_attachment :post, :post_image
+  end
+
+  def down
+    remove_attachment :post, :post_image
+  end
+
 end
