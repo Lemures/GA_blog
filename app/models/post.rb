@@ -2,7 +2,10 @@ class Post < ActiveRecord::Base
 
   extend FriendlyId
   belongs_to :user
+  has_many :comments
   friendly_id :post_title, use: :scoped, scope: :user
+
+
   # friendly_id :post_title, use: :slugged
 
   has_attached_file :post_img, styles: { medium: '700x300>'}, default_url: 'http://placehold.it/700x300', :storage => :s3 , :bucket => 'bloglyusercontent' , :s3_host_name => 's3-us-west-1.amazonaws.com'
@@ -14,6 +17,5 @@ class Post < ActiveRecord::Base
 
 
 
-  has_many :comments
 
 end

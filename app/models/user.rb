@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   extend FriendlyId
   has_many :posts
+  has_many :comments
   friendly_id :username, use: :slugged
   # friendly_id :username, use: :slugged
 
@@ -16,7 +17,7 @@ class User < ActiveRecord::Base
 
 
 
-  has_many :comments
+
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
