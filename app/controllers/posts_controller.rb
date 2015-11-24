@@ -19,22 +19,33 @@ class PostsController < ApplicationController
 
     @user = User.friendly.find(params[:user_id])
 
+
     @post = Post.new
+
+    #@post.valid?
+
+    @posterValid = @post.errors.to_a
+
   end
 
   def create
+    # User.friendly.find(params[:user_id]).posts.create(post_params)
 
-    @post = User.friendly.find(params[:user_id]).posts.create(post_params)
 
-    @poster = Post.new
 
-    if @poster.valid?
+    @poster = User.friendly.find(params[:user_id]).posts.create(post_params)
+
+
+
+     if @poster.valid?
+
 
       redirect_to '/blogly'
 
-    else
+     else
 
-      @poster.errors.messages
+
+      redirect_to new_user_post_path
 
     end
 
